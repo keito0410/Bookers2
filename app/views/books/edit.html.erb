@@ -5,6 +5,12 @@
 <% end %>
 <% end %>
 
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <h4>編集ページ</h4>
 
 <%= form_for(@book) do |f| %>

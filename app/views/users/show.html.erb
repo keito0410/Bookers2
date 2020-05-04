@@ -1,0 +1,8 @@
+<h1>プロフィール画面</h1>
+<%= @user.name %>
+<p>自己紹介</p>
+<%= @user.introduction %>
+<%= attachment_image_tag @user, :profile_image, size: "100x100" , class: "img-circle pull-left profile-thumb" %>
+<% if @user.id == current_user.id %>
+  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+<% end %>

@@ -11,7 +11,7 @@
       <tr>
         <td><%= @book.title %></td>
         <td><%= @book.body %></td>
-        <td><%= link_to "編集", book_path(@book) %></td>
+        <td><%= link_to "編集", edit_book_path(@book) %></td>
         <td><%= link_to "削除", book_path(@book), method: :delete %></td>
       </tr>
   </tbody>
