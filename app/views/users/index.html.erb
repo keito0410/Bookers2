@@ -1,0 +1,25 @@
+<%= render 'users/list', book: @book_new, user: current_user %>
+      <div class="col-xs-9">
+      	<h1>Users</h1>
+          <table class="table">
+	        <thead>
+		      <tr>
+			    <th>image</th>
+			    <th>name</th>
+			    <th class="colspan=3"></th>
+		      </tr>
+	        </thead>
+	        <tbody>
+		      <% @users.each do |user| %>
+		       <tr>
+			     <td><%= attachment_image_tag user, :profile_image, size: "100x100" , class: "img-circle pull-left profile-thumb" %></td>
+			     <td><%= user.name %></td>
+			     <td><%= link_to 'Show', user %></td>
+		        </tr>
+		      <% end %>
+	        </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

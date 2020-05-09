@@ -11,7 +11,7 @@
   </div>
 <% end %>
 
-<h4>編集ページ</h4>
+<h4>Editing Book</h4>
 
 <%= form_for(@book) do |f| %>
 
@@ -23,6 +23,9 @@
 
 <%= f.text_area :body %>
 
-<%= f.submit '更新' %>
+<%= f.submit 'Update Book' %>
 
 <% end %>
+
+<%= link_to 'Show', book_path(@book.id) %>
+<%= link_to 'Back', books_path %>
