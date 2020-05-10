@@ -9,8 +9,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @books = Book.where(user_id: current_user.id)
-    @book = Book.find(params[:id])
+    @books = Book.where(user_id: @user)
     @book_new = Book.new
   end
 
@@ -20,8 +19,12 @@ class UsersController < ApplicationController
 
   def update
   	@user = User.find(params[:id])
-  	@user.update(user_params)
-  	redirect_to user_path(@user.id)
+  	if @user.update(user_params)
+  	   redirect_to user_path(current_user)
+       flash[:notice] = "successfully"
+    else
+      render 'edit'
+    end
   end
 
 

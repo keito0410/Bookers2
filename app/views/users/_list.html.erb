@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-3">
           <h1>User info</h1>
-        <%= attachment_image_tag user, :profile_image, size: "100x100" , class: "pull-left profile-thumb" %>
+        <%= attachment_image_tag @user, :profile_image, size: "100x100" , class: "pull-left profile-thumb" %>
         <table class= "table">
           <tbody>
             <tr></tr>
@@ -16,7 +16,9 @@
             </tr>
        </table>
        <% if user.id == current_user.id %>
-         <p><%= link_to "プロフィール編集", edit_user_path(current_user) %></p>
+         <%= link_to edit_user_path(current_user) do %>
+         <span class="col-xs-12 btn btn-default glyphicon glyphicon-wrench" aria-hidden="true"></span>
+         <% end %>
        <% end %>
 
        <% if book && book.errors.any? %>
@@ -25,20 +27,21 @@
            <%= message %>
          <% end %>
        <% end %>
-
+      
         <h1>New book</h1>
             <%= form_for(book) do |f| %>
               <h4>title</h4>
                 <div class="field row">
-                  <%= f.text_field :title, class: "col-xs-8" %>
+                  <%= f.text_field :title, class: "col-xs-12" %>
                 </div>
               <h4>body<h4>
                 <div class="field row">
-                  <%= f.text_area :body, class: "col-xs-8" %>
+                  <%= f.text_area :body, class: "col-xs-12" %>
                 </div>
               <br>
               <div class="field row">
-                <%= f.submit 'Create Book', class: "col-xs-8" %>
+                <%= f.submit 'Create Book', class: "col-xs-12 btn btn-default" %>
               </div>
             <% end %>
       </div>
+
