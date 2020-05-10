@@ -12,7 +12,7 @@
 	        <tbody>
 		      <% @users.each do |user| %>
 		       <tr>
-			     <td><%= attachment_image_tag user, :profile_image, size: "100x100" , class: "img-circle pull-left profile-thumb" %></td>
+			     <td><%= attachment_image_tag user, :profile_image, size: "100x100", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %></td>
 			     <td><%= user.name %></td>
 			     <td><%= link_to 'Show', user %></td>
 		        </tr>

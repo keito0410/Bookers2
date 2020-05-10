@@ -13,6 +13,17 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
     end
 
-    
+    def authenticate_user
+        if current_user == nil
+            flash[:notice] = "アクセス権限がありません"
+            redirect_to("/login")
+        end
+    end
+
+    def ensure_correct_user
+        if current_user.id != params[:id].to_i
+            redirect_to user_path(current_user)
+        end
+    end
 
 end
