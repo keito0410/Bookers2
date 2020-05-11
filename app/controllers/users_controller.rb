@@ -33,4 +33,4 @@ before_action :ensure_correct_user, {only: [:edit]}
     def user_params
     	params.require(:user).permit(:name, :profile_image, :introduction)
     end
-  end
+  end 
